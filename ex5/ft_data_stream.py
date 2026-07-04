@@ -6,7 +6,7 @@ actions: list[str] = ["run", "eat", "sleep", "grab", "move",
                       "swim", "use", "climb", "release"]
 
 
-def gen_event() -> Generator[tuple[str, ...]]:
+def gen_event() -> Generator[tuple[str, ...], None, None]:
     while (True):
         player: str = random.choice(players)
         action: str = random.choice(actions)
@@ -14,7 +14,8 @@ def gen_event() -> Generator[tuple[str, ...]]:
         yield (event)
 
 
-def consume_event(events: list[tuple[str, ...]]) -> Generator[tuple[str, ...]]:
+def consume_event(events: list[tuple[str, ...]]) ->\
+                  Generator[tuple[str, ...], None, None]:
     while (events):
         event = random.choice(events)
         events.remove(event)
@@ -22,6 +23,7 @@ def consume_event(events: list[tuple[str, ...]]) -> Generator[tuple[str, ...]]:
 
 
 if __name__ == "__main__":
+    print("=== Game Data Stream Processor ===")
     for i in range(1000):
         print(f"Event {i}: {next(gen_event())}")
 
