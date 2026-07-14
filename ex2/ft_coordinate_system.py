@@ -9,7 +9,7 @@ floats in format ’x,y,z’: ").split(",")
     return args
 
 
-def get_pos() -> tuple[float, ...]:
+def get_player_pos() -> tuple[float, ...]:
     args: list[str] = []
     fargs: list[float] = []
 
@@ -28,7 +28,7 @@ def get_pos() -> tuple[float, ...]:
 
 print("=== Game Coordinate System ===")
 print("Get a first set of coordinates")
-set1: tuple[float, ...] = get_pos()
+set1: tuple[float, ...] = get_player_pos()
 x1: float = set1[0]
 y1: float = set1[1]
 z1: float = set1[2]
@@ -37,7 +37,7 @@ print(f"Got a first tuple: {set1}")
 print(f"It includes: X={x1}, Y={y1}, Z={z1}")
 print(f"Distance to center: {round(distance_from_center, 4)}\n")
 print("Get a second set of coordinates")
-set2: tuple[float, ...] = get_pos()
+set2: tuple[float, ...] = get_player_pos()
 x2: float = set2[0]
 y2: float = set2[1]
 z2: float = set2[2]

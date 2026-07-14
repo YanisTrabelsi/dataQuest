@@ -31,4 +31,4 @@ if (error_handler()):
     print(f"Average score: {average}")
     print(f"High score: {high}")
     print(f"Low score: {low}")
-    print(f"Score range {score_range}")
+    print(f"Score range: {score_range}")

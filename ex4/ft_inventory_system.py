@@ -33,7 +33,9 @@ lower: int
 lower_key: str = ""
 new_item: dict[str, int] = {"magic_item": 1}
 
-print(inventory)
+print(f"Got inventory: {inventory}")
+print(f"Item list: {items}")
+print(f"Total quantity of the {quantity} items: {values}")
 for k in inventory:
     percentage: float = inventory[k] / values * 100
     print(f"Item {k} represents {round(percentage, 1)}%")
@@ -51,4 +53,4 @@ print(f"Item most abundant: {greater_key} with quantity {greater}")
 print(f"Item least abundant: {lower_key} with quantity {lower}")
 
 inventory.update(new_item)
-print(inventory)
+print(f"Updated inventory: {inventory}")

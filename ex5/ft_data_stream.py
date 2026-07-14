@@ -23,14 +23,15 @@ def consume_event(events: list[tuple[str, ...]]) ->\
 
 
 if __name__ == "__main__":
+    gen: Generator[tuple[str, ...], None, None] = gen_event()
     print("=== Game Data Stream Processor ===")
     for i in range(1000):
-        print(f"Event {i}: {next(gen_event())}")
+        print(f"Event {i}: {next(gen)}")
 
     ten_events: list[tuple[str, ...]] = []
     for i in range(10):
-        ten_events.append(next(gen_event()))
-    print(f"Built list of 10 events {ten_events}")
+        ten_events.append(next(gen))
+    print(f"Built list of 10 events: {ten_events}")
     for event in consume_event(ten_events):
         print(f"Got event from list: {event}")
         print(f"Remains in list: {ten_events}")

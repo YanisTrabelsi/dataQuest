@@ -7,12 +7,9 @@ players_cap_only: list[str] = []
 score_dict: dict[str, int] = {}
 high_scores: dict[str, int] = {}
 
-for player in players:
-    players_cap.append(player.capitalize())
-for i in range(len(players)):
-    if (players_cap[i] == players[i]):
-        players_cap_only.append(players[i])
-
+players_cap = [player.capitalize() for player in players]
+players_cap_only = [player for player in
+                    players if player == player.capitalize()]
 score_dict = {player: random.randint(0, 1000) for player in players_cap}
 average: float = sum(score_dict.values()) / len(score_dict)
 high_scores = {key: score_dict[key] for key in score_dict.keys()
